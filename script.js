@@ -1,5 +1,5 @@
 
-
+//This will generate the computers choice for Rock Paper Scissors and return it
 const getComputerChoice = () => {
     let choices = [
         "Rock",
@@ -10,26 +10,29 @@ const getComputerChoice = () => {
     return choices[number];
 }
 
+//HELPER METHOD: This is a method to figure out if the user wins, loses, or ties if the they select Rock
 const userRock = (playerSelection, computerSelection) => {
     if (playerSelection === computerSelection) {
         return `Tie! Both players picked ${playerSelection}`;
     } else if (playerSelection !== computerSelection && computerSelection === "Paper") {
-        return `Lose! ${computerSelection} beats Rock!`;
+        return `Lose! ${computerSelection} covers Rock!`;
     } else if (playerSelection !== computerSelection && computerSelection === "Scissors") {
-        return `You win! ${computerSelection} loses to ${playerSelection}`;
+        return `You win! ${playerSelection} crushes ${computerSelection}`;
     }
 }
 
+//HELPER METHOD: This is a method to figure out if the user wins, loses, or ties if they select Paper
 const userPaper = (playerSelection, computerSelection) => {
     if (playerSelection === computerSelection) {
         return `Tie! Both players picked ${playerSelection}`;
     } else if (playerSelection !== computerSelection && computerSelection === "Rock") {
        return `You win! ${playerSelection} covers ${computerSelection}`;
     } else if (playerSelection !== computerSelection && computerSelection === "Scissors") {
-       return `Lose! ${computerSelection} beats ${playerSelection}`
+       return `Lose! ${computerSelection} cuts ${playerSelection}`
     }
 }
 
+//HELPER METHOD: This is a method to figure out if the user wins, loses, or ties if they select Scissors
 const userScissors = (playerSelection, computerSelection) => {
     if (playerSelection === computerSelection) {
         return `Tie! Both players picked ${playerSelection}`;
@@ -40,24 +43,20 @@ const userScissors = (playerSelection, computerSelection) => {
     }
 }
 
-
+//This is a function to simulate 1 round of Rock Paper Scissors using the helper methods above
 function playRound(playerSelection, computerSelection) {
     if (playerSelection === "Rock") {
         return userRock(playerSelection, computerSelection);
     } else if (playerSelection === "Paper") {
         return userPaper(playerSelection, computerSelection);
-    } else {
+    } else if (playerSelection === "Scissors") {
         return userScissors(playerSelection, computerSelection);
+    } else {
+        return `Error. You have not submitted a valid response.`;
     }
-    // if (playerSelection === computerSelection) {
-    //     return `Tie! both players selected ${computerSelection}`
-    // } else if (playerSelection !== computerSelection && computerSelection === "Paper") {
-    //     return `Lose! ${computerSelection} beats Rock!`
-    // } else if (playerSelection !== computerSelection && computerSelection === "Scissors") {
-    //     return `You win! ${computerSelection} loses to ${playerSelection}`;
-    // }
 }
 
+//This function runs the Rock Paper Scissors game 5 times and then logs the player selection, computer selection, and the result of each game
 function game() {
     for(let i = 0; i < 5; i++) {
         const playerSelection = window.prompt();
@@ -68,7 +67,4 @@ function game() {
     }
 }
 
-// console.log(`The player chose: ${playerSelection}`);
-// console.log(`The computer chose: ${computerSelection}`);
-// console.log(playRound());
 game();
