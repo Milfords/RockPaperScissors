@@ -1,0 +1,31 @@
+h1 {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.rps-image {
+    text-align: center;
+}
+
+.flex-container {
+    display: flex;
+    text-align: center;
+}
+
+.flex-child {
+    flex: 1;
+    border: 2px solid black;
+}
+
+.flex-child:first-child {
+    margin-right: 20px;
+    border: 2px solid black;
+}
+
+#player, #computer {
+    margin: 20px;
+}
+
+h2 {
+    text-align: center;
+}
